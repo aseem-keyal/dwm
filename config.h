@@ -15,7 +15,15 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "Hack:style=Bold:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true", "Font Awesome 5 Free Regular:style=Regular:pixelsize=10:antialias=true:autohint=true", "NanumSquare:style=Regular", "Sazanami Gothic:style=Regular",  };
+static char *fonts[]          = { 
+	"Hack:style=Bold:size=10", 
+	"Font Awesome 5 Free Regular:style=Regular:pixelsize=10:antialias=true:autohint=true",
+	"Noto Sans Mono CJK JP:style=Regular",
+	"Noto Sans Mono CJK KR:style=Regular",
+	"Noto Sans Mono CJK SC:style=Regular",
+	"Noto Sans Mono CJK TC:style=Regular",
+	"Noto Sans Mono CJK HK:style=Regular"
+};
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
@@ -161,7 +169,8 @@ static Key keys[] = {
 	{ MODKEY,			XK_q,		killclient,	{0} },
 	{ MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("sysact") },
 	{ MODKEY|ShiftMask,		XK_k,		spawn,		SHCMD("kunst") },
-	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
+	/* { MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") }, */
+	{ MODKEY,			XK_w,		spawn,		SHCMD("lof /usr/lib/firefox/firefox") },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
 	{ MODKEY,			XK_e,		spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
 	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
@@ -217,7 +226,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("sxiv -t ~/pics/wallpapers/earthview") },
 	{ MODKEY,			XK_n,		spawn,		SHCMD(TERMINAL " -e opennotes") },
 	{ MODKEY|ShiftMask,		XK_n,		spawn,		SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
-	{ MODKEY,			XK_m,		spawn,		SHCMD(TERMINAL " -e ncmpcpp") },
+	/* { MODKEY,			XK_m,		spawn,		SHCMD(TERMINAL " -e ncmpcpp") }, */
+	 { MODKEY,			XK_m,		spawn,		SHCMD("lof \"st -e ncmpcpp\"") },
 	{ MODKEY|ShiftMask,		XK_m,		spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,			XK_comma,	spawn,		SHCMD("mpc prev") },
 	{ MODKEY|ShiftMask,		XK_comma,	spawn,		SHCMD("mpc seek 0%") },
